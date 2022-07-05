@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import style from "./style.module.css";
 import { makeStyles } from "@mui/styles";
 import avatar from "../../assets/avatar.jpg";
@@ -6,8 +6,10 @@ import { Container, Box, Grid } from "@mui/material";
 import { Card, CardContent, Link } from "@mui/material";
 import zalo_icon from '../../assets/logo_zalo.png';
 import fb_icon from '../../assets/fb_icon.png';
-import telegram_icon from '../../assets/telegram_icon.png';
+import instagram_icon from '../../assets/instagram_icon.png';
 import email_icon from '../../assets/email_icon.png';
+import contact_icon from '../../assets/contact_icon.png';
+// import {database, ref, push, onValue} from './../../hook/firebase';
 
 const useStyles = makeStyles({
   materialSymbolsOutlined: {
@@ -27,7 +29,7 @@ const useStyles = makeStyles({
     borderRadius: "50%",
     width: 96,
     height: 96,
-    objectFit: "contain",
+    objectFit: "cover",
     filter: "none",
   },
   wrapName: {
@@ -118,6 +120,7 @@ const useStyles = makeStyles({
     "&:last-child": {
       padding: "10px !important",
     },
+
   },
   icon: {
     position: "absolute",
@@ -131,6 +134,22 @@ const useStyles = makeStyles({
 function Main() {
   const classes = useStyles();
 
+  // useEffect(()=>{
+  //   console.log('first')
+  //   onValue(ref(database, 'user'), data => {
+  //    console.log(data.val());
+  //   })
+  // }, [])
+
+  // const addData = (name, address) => {
+
+  //   firebaseClient.data
+  // }
+
+
+  useEffect(()=>{
+  }, [])
+
   return (
     <Container style={{ maxWidth: 680, minHeight: "100vh", paddingTop:'30px' }}>
       <Box sx={{ marginBottom: "2rem" }}>
@@ -140,10 +159,10 @@ function Main() {
             <img className={classes.avatar} src={avatar} alt="avatar"></img>
           </Box>
           <Box className={classes.wrapName}>
-            <h1 className={classes.name}>Phạm Minh Tú</h1>
+            <h1 className={classes.name}>NGUYỄN THỊ NHÀN</h1>
           </Box>
           <Box className={classes.desc}>
-            <h2 style={{ font: "inherit", margin: 0 }}>Software Engineer</h2>
+            <h2 style={{ font: "inherit", margin: 0 }}>Accountant</h2>
           </Box>
         </Grid>
       </Box>
@@ -154,7 +173,7 @@ function Main() {
               <Box sx={{width: '3rem', position: 'relative'}}>
                 <img src={zalo_icon} alt="zalo icon" className={classes.icon}></img>
               </Box>
-              <Link className={classes.link_content}>Zalo</Link>
+              <Link className={classes.link_content} target="_blank" href="https://zalo.me/84977288080">Zalo</Link>
             </Grid>
           </CardContent>
         </Card>
@@ -164,7 +183,7 @@ function Main() {
               <Box sx={{width: '3rem', position: 'relative'}}>
                 <img src={fb_icon} alt="zalo icon" className={classes.icon}></img>
               </Box>
-              <Link className={classes.link_content}>Facebook</Link>
+              <Link className={classes.link_content} target="_blank" href="https://www.facebook.com/nguyennhan.235">Facebook</Link>
             </Grid>
           </CardContent>
         </Card>
@@ -172,9 +191,9 @@ function Main() {
           <CardContent className={classes.card_content}>
             <Grid container alignItems="center">
               <Box sx={{width: '3rem', position: 'relative'}}>
-                <img src={telegram_icon} alt="zalo icon" className={classes.icon}></img>
+                <img src={instagram_icon} alt="zalo icon" className={classes.icon}></img>
               </Box>
-              <Link className={classes.link_content}>Telegram</Link>
+              <Link className={classes.link_content} target="_blank" href="https://www.instagram.com/nguyennhan.20/">Instagram</Link>
             </Grid>
           </CardContent>
         </Card>
@@ -184,7 +203,17 @@ function Main() {
               <Box sx={{width: '3rem', position: 'relative'}}>
                 <img src={email_icon} alt="zalo icon" className={classes.icon}></img>
               </Box>
-              <Link className={classes.link_content}>Email</Link>
+              <Link className={classes.link_content} href="mailto:nguyennhan99.vn@gmail.com">Email</Link>
+            </Grid>
+          </CardContent>
+        </Card>
+        <Card className={classes.card}>
+          <CardContent className={classes.card_content}>
+            <Grid container alignItems="center">
+              <Box sx={{width: '3rem', position: 'relative'}}>
+                <img src={contact_icon} alt="zalo icon" className={classes.icon}></img>
+              </Box>
+              <Link className={classes.link_content} target="_blank" href="tel:+84977288080">Phone number</Link>
             </Grid>
           </CardContent>
         </Card>
